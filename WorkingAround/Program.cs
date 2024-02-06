@@ -1,10 +1,23 @@
-﻿namespace WorkingAround
+﻿using Business.Concrete;
+using Entities.Concrete;
+
+namespace WorkingAround;
+
+internal class Program
 {
-	internal class Program
+	static void Main(string[] args)
 	{
-		static void Main(string[] args)
+
+		Person person = new()
 		{
-			Console.WriteLine("Hello, World!");
-		}
+			FirstName = "Rıdvan",
+			LastName = "Kesken",
+			NationalIdentity = 12345678901,
+			DateOfBirthYear = 1993
+		};
+
+		PttManager pttManager = new(new PersonManager());
+
+		pttManager.GiveMask(person);
 	}
 }
